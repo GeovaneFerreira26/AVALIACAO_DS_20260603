@@ -1,0 +1,59 @@
+.section-mae {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.mae-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .mae-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Moldura Digital CSS */
+.frame-wrapper {
+  position: relative;
+}
+
+.digital-frame-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #e0e7ff;
+  border-radius: 16px;
+  transform: rotate(3deg);
+  transition: transform 0.3s ease;
+}
+
+.frame-wrapper:hover .digital-frame-bg {
+  transform: rotate(1deg);
+}
+
+.digital-frame-img {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.mae-title {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.mae-p {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
