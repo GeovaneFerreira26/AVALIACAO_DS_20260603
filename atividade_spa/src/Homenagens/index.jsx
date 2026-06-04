@@ -3,38 +3,70 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
 export default function Homenagens() {
-  // Estado para armazenar os inputs do formulário
+  // Estado para armazenar os inputs do formulário de envio rápido
   const [formData, setFormData] = useState({ nome: '', texto: '' });
   
-  // Estado para armazenar as mensagens enviadas (inicia com duas de exemplo)
+  /* MURAL DE HOMENAGENS FIXAS (Cadastradas manualmente por você)
+    Para adicionar uma nova, copie de um '{' até o '},' cole no topo da lista e altere os textos.
+  */
   const [mensagens, setMensagens] = useState([
-    { id: 2, nome: 'Mãe', texto: 'Você é o nosso maior orgulho, Geovane! Te amamos muito.' },
-    { id: 3, nome: 'Pai', texto: 'Ver suas conquistas de perto enche meu coração de alegria. Continue sempre focado!' },
-    { id: 1, nome: 'Jamille Valente', texto: 'Ô Amor.... Te amo tanto! E como é maravilhoso compartilhar a vida com você! Eu amo a nossa família ❤️🐶✨' },
-    { id: 4, nome: 'Juli', texto: 'Aqui é a minha família favorita! Amo vocês! ❤️' }
+    { 
+      id: 5, 
+      nome: 'Exemplo de Nova Mensagem', 
+      texto: 'Esta é uma mensagem que você cadastrou manualmente copiando o print que te mandaram.', 
+      dataHora: '04/06/2026 às 19:15' 
+    },
+    { 
+      id: 4, 
+      nome: 'Juli', 
+      texto: 'Aqui é a minha família favorita! Amo vocês! ❤️', 
+      dataHora: '04/06/2026 às 18:15' 
+    },
+    { 
+      id: 1, 
+      nome: 'Jamille Valente', 
+      texto: 'Ô Amor.... Te amo tanto! E como é maravilhoso compartilhar a vida com você! Eu amo a nossa família ❤️🐶✨', 
+      dataHora: '04/06/2026 às 17:40' 
+    },
+    { 
+      id: 3, 
+      nome: 'Pai', 
+      texto: 'Ver suas conquistas de perto enche meu coração de alegria. Continue sempre focado!', 
+      dataHora: '04/06/2026 às 15:05' 
+    },
+    { 
+      id: 2, 
+      nome: 'Mãe', 
+      texto: 'Você é o nosso maior orgulho, Geovane! Te amamos muito.', 
+      dataHora: '04/06/2026 às 14:20' 
+    }
   ]);
 
-  // Atualiza os valores dos inputs enquanto o usuário digita
+  // Atualiza os valores dos inputs enquanto o usuário digita no formulário local
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Executado quando o usuário clica no botão "Enviar"
+  // Executado quando o usuário testa o botão "Enviar" em tempo real
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // Validação simples para não enviar campos vazios
     if (!formData.nome.trim() || !formData.texto.trim()) return;
 
-    // Cria a nova homenagem
+    // Captura automática caso usem o formulário online
+    const agora = new Date();
+    const dataFormatada = agora.toLocaleDateString('pt-BR');
+    const horaFormatada = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    const dataHoraString = `${dataFormatada} às ${horaFormatada}`;
+
     const novaHomenagem = {
-      id: Date.now(), // Gera um ID único baseado no tempo atual
+      id: Date.now(), 
       nome: formData.nome,
-      texto: formData.texto
+      texto: formData.texto,
+      dataHora: dataHoraString // Gera a string dinamicamente na hora do teste
     };
 
-    // Adiciona a nova homenagem no topo da lista e limpa o formulário
     setMensagens(prev => [novaHomenagem, ...prev]);
     setFormData({ nome: '', texto: '' });
   };
@@ -48,7 +80,7 @@ export default function Homenagens() {
           <p>Escreva uma mensagem especial para registrar o seu carinho</p>
         </div>
 
-        {/* Formulário para Inserção de Homenagens */}
+        {/* Formulário temporário/demonstrativo para o usuário interagir */}
         <form onSubmit={handleFormSubmit} className="homenagem-form">
           <div className="form-group">
             <label htmlFor="nome">Seu Nome:</label>
@@ -83,7 +115,7 @@ export default function Homenagens() {
 
         <hr className="divider-homenagens" />
 
-        {/* Grid de Exibição das Homenagens */}
+        {/* Grid de Exibição de tudo que está salvo na array acima */}
         <div className="homenagens-grid">
           <AnimatePresence>
             {mensagens.map((msg) => (
@@ -96,7 +128,11 @@ export default function Homenagens() {
                 className="homenagem-card"
               >
                 <p className="homenagem-texto">"{msg.texto}"</p>
-                <h4 className="homenagem-autor">— Por: <span>{msg.nome}</span></h4>
+                
+                <div className="homenagem-footer">
+                  <h4 className="homenagem-autor">— Por: <span>{msg.nome}</span></h4>
+                  <span className="homenagem-data">{msg.dataHora}</span>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
