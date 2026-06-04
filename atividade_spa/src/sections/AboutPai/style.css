@@ -46,7 +46,7 @@
   width: 100%;
   height: 520px;
   object-fit: cover;
-  object-position: center; /* 📌 Mantém a cabeça e o centro protegidos e corta o chão */
+  object-position: top center; /* 📌 Mantém a cabeça e o centro protegidos e corta o chão */
   border-radius: 16px;
   border: 4px solid #ffffff;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
