@@ -40,7 +40,7 @@ export default function AboutPai() {
   }, []);
 
   return (
-    <section id="pai" className="section-pai">
+    <section id="eu" className="section-pai">
       <div className="pai-grid">
         
         {/* Lado da Imagem com Moldura Digital */}

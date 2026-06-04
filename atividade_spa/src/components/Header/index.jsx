@@ -9,10 +9,10 @@ export default function Header() {
         <nav className="header-nav">
           <a href="#inicio">Início</a>
           <a href="#mae">Mãe</a>
-          <a href="#pai">Eu</a>
+          <a href="#eu">Eu</a>
           <a href="#pet">O Pet</a>
           <a href="#galeria">Memórias</a>
-          <a href="#videos">Vídeos</a>
+          <a href="#homenagens">Homenagens</a>
         </nav>
       </div>
     </header>
