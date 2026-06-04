@@ -6,6 +6,7 @@ import video1 from '../../assets/mille01.mp4';
 import trabalho01 from '../../assets/trabalho01.mp4';
 import todos02 from '../../assets/todos02.mp4';
 import lupita1 from '../../assets/lupita_video01.mp4';
+import milleacademia from '../../assets/milleacademia.mp4';
 
 export default function Gallery() {
   const photos = [
@@ -14,6 +15,7 @@ export default function Gallery() {
     { id: 3, url: trabalho01, type: 'video', title: 'Trabalho CLT On' }, // ✅ Adicionado tipo para renderizar a tag <video>
     { id: 4, url: todos02, type: 'video', title: 'Cárdio da Tarde' }, // ✅ Adicionado tipo para renderizar a tag <video>
     { id: 5, url: lupita1, type: 'video', title: 'Lupita e Sua Caminhada' }, // ✅ Adicionado tipo para renderizar a tag <video>
+    { id: 5, url: milleacademia, type: 'video', title: 'Foco na Meta' }, // ✅ Adicionado tipo para renderizar a tag <video>
   ];
 
   return (
