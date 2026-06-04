@@ -10,6 +10,7 @@ export default function Homenagens() {
   const [mensagens, setMensagens] = useState([
     { id: 1, nome: 'Mãe', texto: 'Você é o nosso maior orgulho, Geovane! Te amamos muito.' },
     { id: 2, nome: 'Pai', texto: 'Ver suas conquistas de perto enche meu coração de alegria. Continue sempre focado!' }
+    { id: 2, nome: 'Juli', texto: 'Aqui é a minha família favorita! Amo vocês! ❤️' }
   ]);
 
   // Atualiza os valores dos inputs enquanto o usuário digita
