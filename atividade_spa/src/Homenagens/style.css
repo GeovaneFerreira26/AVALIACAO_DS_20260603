@@ -1,0 +1,123 @@
+/* Seção Principal */
+.homenagens-section {
+  padding: 60px 20px;
+  background-color: #f7fafc; /* Um fundo levemente cinza/azul para destacar os cards */
+}
+
+.homenagens-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.homenagens-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.homenagens-header h2 {
+  font-size: 2.2rem;
+  color: #1a202c;
+  margin-bottom: 10px;
+}
+
+/* Estrutura do Formulário */
+.homenagem-form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #2d3748;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3182ce;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+/* Botão Enviar */
+.btn-enviar-homenagem {
+  width: 100%;
+  padding: 14px;
+  background-color: #3182ce; /* Azul moderno, mude para a cor principal do seu tema */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-enviar-homenagem:hover {
+  background-color: #2b6cb0;
+}
+
+/* Divisor */
+.divider-homenagens {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 40px 0;
+}
+
+/* Grid e Estilo dos Cards de Mensagem */
+.homenagens-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.homenagem-card {
+  background: #ffffff;
+  padding: 24px;
+  border-left: 5px solid #3182ce; /* Detalhe na lateral esquerda do card */
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.homenagem-texto {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.homenagem-autor {
+  font-size: 0.95rem;
+  color: #718096;
+  text-align: right;
+}
+
+.homenagem-autor span {
+  font-weight: bold;
+  color: #2d3748;
+}

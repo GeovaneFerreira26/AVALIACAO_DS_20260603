@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './style.css';
 
@@ -11,13 +11,32 @@ const images = [mille01, mille02, mille03];
 
 export default function AboutMae() {
   const [currentImage, setCurrentImage] = useState(0);
+  const timerRef = useRef(null); // Guarda a referência do timer para resetá-lo no clique
+
+  // Função isolada para avançar a imagem
+  const nextImage = () => {
+    setCurrentImage(prev => (prev + 1) % images.length);
+  };
+
+  // Função que gerencia o clique do usuário na foto da Jamille
+  const handleImageClick = () => {
+    nextImage(); // Muda a imagem imediatamente ao clicar
+    
+    // Reseta o temporizador de 5 segundos para que a imagem não mude logo em seguida
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(nextImage, 5000);
+    }
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage(prev => (prev + 1) % images.length);
-    }, 5000);
+    // Inicia o efeito automático de 5 segundos
+    timerRef.current = setInterval(nextImage, 5000);
 
-    return () => clearInterval(interval); // Limpa ao desmontar
+    // Limpa o timer quando o componente sai da tela
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
 
   return (
@@ -38,6 +57,8 @@ export default function AboutMae() {
             src={images[currentImage]}
             alt="Mãe"
             className="digital-frame-img"
+            onClick={handleImageClick} /* <-- Comando de clique adicionado aqui */
+            style={{ cursor: 'pointer' }} /* Transforma o cursor em "mãozinha" */
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}

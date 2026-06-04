@@ -7,6 +7,7 @@ import AboutPai from './sections/AboutPai';
 import AboutPet from './sections/AboutPet';
 import Gallery from './sections/Gallery';
 import Videos from './sections/Videos';
+import Homenagens from './Homenagens';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <AboutPai />
         <AboutPet />
         <Gallery />
-        <Videos />
+       
+        <Homenagens />
       </main>
       <Footer />
     </div>

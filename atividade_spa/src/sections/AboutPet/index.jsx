@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './style.css';
 
@@ -10,13 +10,32 @@ const images = [lupita02, lupita01, lupita03];
 
 export default function AboutPet() {
   const [currentImage, setCurrentImage] = useState(0);
+  const timerRef = useRef(null); // Guarda a referência do timer para podermos resetá-lo
+
+  // Função isolada para avançar a imagem
+  const nextImage = () => {
+    setCurrentImage(prev => (prev + 1) % images.length);
+  };
+
+  // Função que gerencia o clique do usuário
+  const handleImageClick = () => {
+    nextImage(); // Muda a imagem imediatamente no clique
+    
+    // Reseta o temporizador de 5 segundos para que ele não mude logo em seguida
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(nextImage, 5000);
+    }
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage(prev => (prev + 1) % images.length);
-    }, 5000);
+    // Inicia o efeito automático de 5 segundos
+    timerRef.current = setInterval(nextImage, 5000);
 
-    return () => clearInterval(interval);
+    // Limpa o timer quando o componente é desmontado
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
 
   return (
@@ -36,6 +55,8 @@ export default function AboutPet() {
             src={images[currentImage]}
             alt="Pet"
             className="pet-img"
+            onClick={handleImageClick} /* <-- Adicionado o comando de clique aqui */
+            style={{ cursor: 'pointer' }} /* Torna o cursor uma "mãozinha" indicando clique */
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}

@@ -1,57 +1,66 @@
-.section-pet {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
+/* 1. Estrutura principal lado a lado (Grid) */
 .pet-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr; /* Divide a tela em duas colunas iguais */
+  align-items: center;            /* Alinha verticalmente ao centro */
+  gap: 50px;                      /* Espaço entre a imagem e o texto */
+  max-width: 1140px;              /* Mantém o alinhamento padrão de página */
+  margin: 0 auto;
+  padding: 20px;
 }
 
-@media (min-width: 768px) {
-  .pet-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
+/* 2. Contêiner do Framer Motion que envelopa o carrossel */
 .pet-frame-wrapper {
   position: relative;
+  width: 100%;
+  max-width: 440px;      /* Largura exata para bater com a foto do Geovane */
+  height: 480px;         /* Altura idêntica à do Geovane */
   display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;      /* Garante que nada das fotos vaze para fora dos cantos arredondados */
+  border-radius: 15px;   /* Cantos arredondados no contêiner pai */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave idêntica */
 }
 
-/* Moldura Circular para o Pet */
+/* 3. Remove o fundo azul antigo que estava quebrando a estética */
 .pet-circle-bg {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  background-color: #abfaef;
-  border-radius: 0%;
-  top: -10px;
-  left: calc(50% - 160px);
+  display: none !important; 
 }
 
+/* 4. As imagens da Lupita que ficam trocando */
 .pet-img {
-  position: relative;
-  z-index: 10;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 0%;
-  border: 6px solid #ffffff;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;          /* Ocupa 100% do wrapper que definimos acima */
+  object-fit: cover;     /* Preenche o espaço cortando as bordas sobressalentes sem distorcer */
+  border: none !important; /* Elimina qualquer borda colorida restante */
+  border-radius: 15px;   /* Reforça os cantos arredondados na imagem */
 }
 
+/* 5. Ajuste fino do Bloco de Texto ao lado */
 .pet-title {
-  font-size: 2rem;
-  color: #0f172a;
-  margin-bottom: 16px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 24px;
 }
 
 .pet-p {
-  color: #475569;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+/* Responsividade para Tablets e Celulares */
+@media (max-width: 768px) {
+  .pet-grid {
+    grid-template-columns: 1fr; /* Vira uma coluna única no celular */
+    gap: 30px;
+  }
+
+  .pet-frame-wrapper {
+    height: 380px; /* Reduz a altura em telas menores para não sumir com o texto */
+    margin: 0 auto; /* Centraliza a imagem na tela do celular */
+  }
 }
