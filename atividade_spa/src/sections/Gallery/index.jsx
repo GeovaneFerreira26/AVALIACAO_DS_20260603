@@ -2,13 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './style.css';
 import todos01 from '../../assets/todos01.png';
+import video1 from '../../assets/mille01.mp4';
+import trabalho01 from '../../assets/trabalho01.mp4';
+import todos02 from '../../assets/todos02.mp4';
+import lupita1 from '../../assets/lupita_video01.mp4';
 
 export default function Gallery() {
   const photos = [
-    { id: 1, url: todos01, title: 'Conspiração de Rua' },  // ✅ variável, sem aspas
-    { id: 2, url: 'https://images.unsplash.com/photo-1516624683217-bf02fc6b6b7c?w=500', title: 'Passeio no parque' },
-    { id: 3, url: 'https://images.unsplash.com/photo-1537151625747-768eb64226fd?w=500', title: 'Domingo de preguiça' },
-    { id: 4, url: 'https://images.unsplash.com/photo-1544378382-506fa5141868?w=500', title: 'Aniversário' },
+    { id: 1, url: todos01, title: 'Conspiração de Rua' },  // ✅ Imagem local funcionando
+    { id: 2, url: video1, type: 'video', title: 'Primeira Corrida de Muitas' }, // ✅ Adicionado tipo para renderizar a tag <video>
+    { id: 3, url: trabalho01, type: 'video', title: 'Trabalho CLT On' }, // ✅ Adicionado tipo para renderizar a tag <video>
+    { id: 4, url: todos02, type: 'video', title: 'Cárdio da Tarde' }, // ✅ Adicionado tipo para renderizar a tag <video>
+    { id: 5, url: lupita1, type: 'video', title: 'Lupita e Sua Caminhada' }, // ✅ Adicionado tipo para renderizar a tag <video>
   ];
 
   return (
@@ -16,7 +21,7 @@ export default function Gallery() {
       <div className="gallery-container">
         <div className="gallery-header">
           <h2>Mural de Memórias</h2>
-          <p>Nossos momentos favoritos registrados em fotos</p>
+          <p>Nossos momentos favoritos registrados em fotos e vídeos</p>
         </div>
 
         <div className="gallery-grid">
@@ -30,7 +35,20 @@ export default function Gallery() {
               className="gallery-card"
             >
               <div className="gallery-img-container">
-                <img src={photo.url} alt={photo.title} className="gallery-img" />
+                {/* Condicional para verificar se o arquivo atual é um vídeo local */}
+                {photo.type === 'video' ? (
+                  <video 
+                    src={photo.url} 
+                    className="gallery-img" 
+                    muted 
+                    playsInline
+                    onMouseOver={(e) => e.target.play()} 
+                    onMouseOut={(e) => e.target.pause()}
+                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <img src={photo.url} alt={photo.title} className="gallery-img" />
+                )}
               </div>
               <p className="gallery-card-title">{photo.title}</p>
             </motion.div>

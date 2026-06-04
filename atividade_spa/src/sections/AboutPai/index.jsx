@@ -52,9 +52,15 @@ export default function AboutPai() {
           transition={{ duration: 0.6 }}
           className="pai-text-box"
         >
-          <h2 className="pai-title">O Pai: [Nome Dele]</h2>
+          <h2 className="pai-title">Geovane: Determinação, Conquistas e Essência</h2>
           <p className="pai-p">
-            Insira aqui o texto sobre o pai. Suas brincadeiras favoritas com o pet, as características mais marcantes e o carinho dele pela família.
+            Ele é uma pessoa incrível, focada, esforçada e muito determinada. Mesmo nos dias em que o cansaço aperta, ele continua correndo atrás dos seus objetivos, pois aprendeu desde cedo a nunca esperar por ninguém para conquistar o que é seu. Sabe perfeitamente o valor do próprio suor, e duas das suas maiores vitórias e motivos de orgulho foram conquistar a habilitação e a casa própria — tudo fruto de muito trabalho e dedicação.
+            </p>
+            <p className="pai-p">
+            Quem o conhece sabe que ele tem um lado maravilhoso, mas também reconhece que, às vezes, ele consegue ser um pouquinho chato (o que faz parte do pacote!). Ele não é fã de receber ordens e não funciona muito bem sob pressão ou com cobranças excessivas na cabeça.
+            </p>
+            <p className="pai-p">
+            No fim das contas, ele possui uma personalidade forte, é fiel aos seus princípios e nunca deixa de lutar por aquilo em que acredita.
           </p>
         </motion.div>
 
