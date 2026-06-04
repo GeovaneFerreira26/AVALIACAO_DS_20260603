@@ -8,9 +8,10 @@ export default function Homenagens() {
   
   // Estado para armazenar as mensagens enviadas (inicia com duas de exemplo)
   const [mensagens, setMensagens] = useState([
-    { id: 1, nome: 'Mãe', texto: 'Você é o nosso maior orgulho, Geovane! Te amamos muito.' },
-    { id: 2, nome: 'Pai', texto: 'Ver suas conquistas de perto enche meu coração de alegria. Continue sempre focado!' },
-    { id: 3, nome: 'Juli', texto: 'Aqui é a minha família favorita! Amo vocês! ❤️' }
+    { id: 2, nome: 'Mãe', texto: 'Você é o nosso maior orgulho, Geovane! Te amamos muito.' },
+    { id: 3, nome: 'Pai', texto: 'Ver suas conquistas de perto enche meu coração de alegria. Continue sempre focado!' },
+    { id: 1, nome: 'Jamille Valente', texto: 'Ô Amor.... Te amo tanto! E como é maravilhoso compartilhar a vida com você! Eu amo a nossa família ❤️🐶✨' },
+    { id: 4, nome: 'Juli', texto: 'Aqui é a minha família favorita! Amo vocês! ❤️' }
   ]);
 
   // Atualiza os valores dos inputs enquanto o usuário digita
