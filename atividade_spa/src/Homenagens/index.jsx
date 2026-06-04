@@ -10,12 +10,7 @@ export default function Homenagens() {
     Para adicionar uma nova, copie de um '{' até o '},' cole no topo da lista e altere os textos.
   */
   const [mensagens, setMensagens] = useState([
-    { 
-      id: 5, 
-      nome: 'Exemplo de Nova Mensagem', 
-      texto: 'Esta é uma mensagem que você cadastrou manualmente copiando o print que te mandaram.', 
-      dataHora: '04/06/2026 às 19:15' 
-    },
+   
     { 
       id: 4, 
       nome: 'Juli', 
